@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Danny Richmond">
+    <meta name="keywords" content="Transparent Circle,HTML,CSS,JavaScript">
+    <meta name="description" content="Magic circle opening hole to background image!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../style/style.css" rel="stylesheet" type="text/css">
+    <title>Magic Circle</title>
+</head>
+
+<!--       Body       -->
+<body>
+    <div class="outer">
+        <ul id="menuItems">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div class="holder">
+            <div id="circle"></div>
+        </div>
+    </div>
+</body>
+
+<!-- Script to make circle follow the cursor -->
+<!--       And to show/hide the circle       -->
+<script type="text/javascript">
+    window.onload = function(){
+        var circle = document.getElementById("circle");
+        circle.style.display = 'none';
+        var x, y;
+        // Change location of the circle on mousemove
+        window.addEventListener('mousemove', function(event){
+            x = event.clientX - 40;
+            y = event.clientY - 85;
+            if ( typeof x !== 'undefined' ){
+                if(y > 6 && y < 475) {
+                    circle.style.display = 'block';
+                    circle.style.left = x + "px";
+                    circle.style.top = y + "px";
+                } else {
+                    circle.style.display = 'none';
+                }
+            }
+        }, false);
+    }
+</script>
+</html>
